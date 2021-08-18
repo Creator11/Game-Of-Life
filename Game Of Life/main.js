@@ -1,6 +1,6 @@
 const canvas = document.querySelector('canvas');
 const ctx  = canvas.getContext('2d');
-
+const color1 = document.querySelector('#cellsi');
 const resolution = 10;
 canvas.width = 1300;
 canvas.height = 600;
@@ -30,6 +30,7 @@ function nextGen(grid) {
     for (let col = 0; col < grid.length; col++) {
         for (let row = 0; row < grid[col].length; row++) {
             const cell = grid[col][row];
+
             let numNeighbours = 0;
             for (let i = -1; i < 2; i++) {
                for (let j = -1; j < 2; j++) {
@@ -63,12 +64,13 @@ function render(grid) {
     for (let col = 0; col < grid.length; col++) {
         for (let row = 0; row < grid[col].length; row++) {
             const cell = grid[col][row];
-
+            
             ctx.beginPath();
             ctx.rect(col * resolution, row * resolution, resolution, resolution);
-            ctx.fillStyle = cell ? 'blue' : 'black' ;
+            ctx.fillStyle = cell ? '#FFFF' : '#000519' ;
             ctx.fill();
-            ctx.stroke();
+            //ctx.stroke();
+            
         }
     }
 }
